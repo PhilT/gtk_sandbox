@@ -11,10 +11,10 @@ end
 progress = Gtk::ProgressBar.new
 window.add(progress)
 current_progress = 0
-GLib::Timeout.add(500) do
-  current_progress += 0.1
-  progress.fraction = current_progress
-  progress.pulse if current_progress >= 0.9
+GLib::Timeout.add(100) do
+  current_progress += 0.05
+  progress.fraction = current_progress if current_progress < 1.0
+  progress.pulse if current_progress >= 1.0
   true
 end
 
