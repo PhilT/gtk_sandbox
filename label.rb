@@ -1,7 +1,6 @@
 require 'gtk2'
 
-window = Gtk::Window.new
-window.title = 'Label'
+window = Gtk::Window.new 'Label'
 window.border_width = 10
 
 window.signal_connect("destroy") do |w|

@@ -1,9 +1,7 @@
 require 'gtk2'
 
-window = Gtk::Window.new
-window.title = 'Completion'
+window = Gtk::Window.new 'Completion'
 window.set_default_size(300, 200)
-
 window.signal_connect("destroy") do |w|
   Gtk.main_quit
 end

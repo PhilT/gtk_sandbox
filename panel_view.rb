@@ -1,6 +1,12 @@
 require 'gtk2'
 require 'gtksourceview2'
 
+window = Gtk::Window.new 'Panel View'
+window.signal_connect("destroy") do |w|
+  Gtk.main_quit
+end
+window.set_default_size(300, 100)
+
 box = Gtk::VBox.new
 frame1 = Gtk::Frame.new
 frame2 = Gtk::Frame.new
@@ -9,10 +15,6 @@ frame2.shadow_type = Gtk::SHADOW_IN
 
 box.pack_start(frame1, true, true)
 box.pack_end(frame2, false, false)
-
-window = Gtk::Window.new
-window.title = "Panel View"
-
 window.add(box)
 
 view = Gtk::SourceView.new
@@ -21,14 +23,8 @@ frame1.add(view)
 field = Gtk::Entry.new
 frame2.add(field)
 
-window.signal_connect("destroy") do |w|
-  Gtk.main_quit
-end
-
-window.set_default_size(300, 100)
 window.show_all
 frame2.hide
-
 
 window.signal_connect("key_press_event") do |w,e|
   keymap = Gdk::Keymap.default

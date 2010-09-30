@@ -1,7 +1,6 @@
 require 'gtk2'
 
-window = Gtk::Window.new
-window.title = 'Progress Bar'
+window = Gtk::Window.new 'Progress Bar'
 window.border_width = 10
 
 window.signal_connect("destroy") do |w|

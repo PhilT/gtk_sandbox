@@ -2,7 +2,11 @@
 
 require 'gtk2'
 
-window = Gtk::Window.new
+window = Gtk::Window.new 'Forward Events'
+window.signal_connect("destroy") do |w|
+  Gtk.main_quit
+end
+
 box = Gtk::VBox.new
 entry = Gtk::Entry.new
 
@@ -34,10 +38,6 @@ end
 
 listview.signal_connect('key_press_event') do |w, e|
   false
-end
-
-window.signal_connect("destroy") do |w|
-  Gtk.main_quit
 end
 
 def press view, direction

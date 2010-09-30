@@ -1,7 +1,7 @@
 require 'gtk2'
 require 'gtksourceview2'
 
-view = Gtk::SourceView.new
+view = Gtk::SourceView.new 'Text Tags'
 view.set_size_request 300, 100
 
 buffer = view.buffer

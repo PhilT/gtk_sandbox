@@ -1,7 +1,6 @@
 require 'gtk2'
 
-window = Gtk::Window.new
-window.title = 'Getting a list view with TreeView'
+window = Gtk::Window.new 'ListView with a TreeView'
 window.set_default_size(300, 200)
 
 window.signal_connect("destroy") do |w|

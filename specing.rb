@@ -6,8 +6,7 @@ require 'gtk2'
 require 'rspec'
 
 # Build the GUI
-window = Gtk::Window.new
-window.title = 'Specing'
+window = Gtk::Window.new 'Specing'
 
 #Useful when adding Gtk.main to a failing spec - allows the app to be exited cleanly
 window.signal_connect("destroy") do |w|
