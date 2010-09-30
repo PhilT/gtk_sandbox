@@ -7,15 +7,21 @@ require 'gtk2'
   Gtk.main_quit
 end
 
+@window.signal_connect('event') do |w, e|
+  puts e
+  false # tells GTK to continue processing handlers for this event
+end
+
 @window.signal_connect("key_press_event") do |w, e|
   keys = []
   keys << "CTRL" if e.state.control_mask?
   keys << "ALT" if e.state.mod1_mask?
   keys << "SHIFT" if e.state.shift_mask?
   unmodified_keyval = Gdk::Keymap.default.lookup_key(e.hardware_keycode, 0, 0)
-  keys << Gdk::Keyval.to_name(unmodified_keyval).upcase
+  keys << Gdk::Keyval.to_name(unmodified_keyval)
   shortcut = keys.join('+')
   puts shortcut
+  false
 end
 
 def press(key)
@@ -28,11 +34,18 @@ def press(key)
   @window.signal_emit('key_press_event', event)
 end
 
+box = Gtk::VBox.new
+@window.add(box)
+
 button = Gtk::Button.new('Emit Key Press (or press a key)')
 button.signal_connect('button_press_event') do
-  press('CTRL+F')
+  press('CTRL+S')
+  false
 end
-@window.add(button)
+box.add(button)
+
+entry = Gtk::Entry.new
+box.add(entry)
 
 @window.show_all
 Gtk.main
