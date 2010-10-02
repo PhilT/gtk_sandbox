@@ -78,14 +78,14 @@ end
 
 # And finally the spec
 
-def widget options
+def widget_named path
   widget = Gtk::Window.toplevels.first
-  options[:named].split('.').each do |name|
+  path.split('.').each do |name|
     widget = widget.children.select{|child| child.name == name}.first
   end
   widget
 rescue
-  puts "Cannot find widget: #{options[:named]}. Failed on children of #{name}"
+  puts "Cannot find widget: #{path}. Failed on children of #{name}"
 end
 
 describe 'Open Panel' do
@@ -93,7 +93,7 @@ describe 'Open Panel' do
     press 'o'
     process_events
     panel.should be_visible
-    field = widget(:named => 'open.search')
+    field = widget_named 'open.search'
     fill_in field, :with => 'filename'
     field.text.should == 'filename'
     press 'Return', :in => field

@@ -1,0 +1,52 @@
+window:
+  type: Window
+  name: Layout
+  size: 1000x800
+  destroy_handler: quit
+  key_press_event: process_key
+  main:
+    type: VBox
+    info:
+      type: HBox
+      margin: 4
+      pack: fill
+      progress:
+        type: ProgressBar
+        width: 150
+        margin: 4
+        pack: fill
+      path:
+        type: Label
+        margin: 4
+        pack: fill
+      position:
+        type: Label
+        width: 150
+        margin: 4
+
+    scrollbars:
+      type: ScrolledWindow
+      policy: Gtk::POLICY_AUTOMATIC, Gtk::POLICY_AUTOMATIC
+      pack: both
+      code:
+        type: SourceView
+
+    file:
+      type: VBox
+      pack: both
+      bar:
+        type: HBox
+        margin: 4
+        pack: fill
+        function:
+          type: Label
+          width: 100
+          pack: fill
+        field:
+          type: Entry
+          margin: 4
+          pack: both
+      list:
+        type: TreeView
+        pack: both
+
