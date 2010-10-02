@@ -3,8 +3,7 @@ Ruby Gnome2 Examples
 
 This is a suite of single file apps that exercise the various aspects of the ruby-gnome2 library.
 
-* install         - Script to install required libraries and download and install ruby-gnome2 and gtksourceview2
-
+* **install**         - Script to install required libraries and download and install ruby-gnome2 and gtksourceview2
 * **box**             - Using the Gtk::VBox widget to pack frames vertically
 * **button**          - Displays a button. Handler for clicking
 * **checkbox**        - Displays a Gtk::CheckButton (checkbox in web terms). Handles checking/unchecking
