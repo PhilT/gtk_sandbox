@@ -37,9 +37,9 @@ window.signal_connect("key_press_event") do |w, e|
   keys << "ALT" if e.state.mod1_mask?
   keys << "SHIFT" if e.state.shift_mask?
   unmodified_keyval = Gdk::Keymap.default.lookup_key(e.hardware_keycode, 0, 0)
-  keys << Gdk::Keyval.to_name(unmodified_keyval)
+  keys << Gdk::Keyval.to_name(unmodified_keyval).upcase
   shortcut = keys.join('+')
-  if shortcut.upcase == "O"
+  if shortcut == "CTRL+O"
     panel.show
   end
 end
@@ -70,10 +70,12 @@ def press key, options = {}
   entry = Gdk::Keymap.default.get_entries_for_keyval(event.keyval).first
   event.hardware_keycode = entry[0]
   widget.signal_emit('key_press_event', event)
+  process_events
 end
 
 def fill_in widget, options
   widget.insert_text options[:with], widget.position
+  process_events
 end
 
 # And finally the spec
@@ -90,8 +92,7 @@ end
 
 describe 'Open Panel' do
   it 'opens a file' do
-    press 'o'
-    process_events
+    press 'CTRL+O'
     panel.should be_visible
     field = widget_named 'open.search'
     fill_in field, :with => 'filename'
