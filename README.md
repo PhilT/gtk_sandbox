@@ -11,6 +11,7 @@ This is a suite of single file apps that exercise the various aspects of the rub
 * **forward_events**  - Forwards key events to another widget
 * **hello**           - Simple Hello World
 * **info**            - Displays version GTK and Ruby bindings
+* **keyboard**        - Demonstrates VBox and HBox with buttons to display a keyboard layout
 * **keys**            - Handling keyboard shortcuts
 * **label**           - Display a simple label
 * **layout**          - Loads a GUI layout from a YAML and renders it. Example interaction: CTRL+F hides the bottom panel

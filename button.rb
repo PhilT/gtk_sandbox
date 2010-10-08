@@ -6,9 +6,8 @@ window.signal_connect("destroy") do |w|
   Gtk.main_quit
 end
 
-button = Gtk::Button.new '_Click Me!', true
+button = Gtk::Button.new "_Click Me!\nI'm cool!", true
 button.signal_connect('clicked') {puts 'button clicked'}
-button.set_size_request(100, 30)
 window.add(button)
 
 window.show_all

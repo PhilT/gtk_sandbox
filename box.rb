@@ -2,7 +2,7 @@ require 'gtk2'
 require 'gtksourceview2'
 
 window = Gtk::Window.new "Box"
-window.set_default_size(300, 100)
+window.set_default_size(300, 200)
 window.signal_connect("destroy") do |w|
   Gtk.main_quit
 end
