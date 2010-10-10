@@ -1,5 +1,4 @@
 require 'gtk2'
-require 'gtksourceview2'
 
 window = Gtk::Window.new 'Pane'
 window.signal_connect("destroy") do |w|
@@ -20,7 +19,7 @@ frame1.set_size_request(-1, 100) # minimum width, height of widget
 
 window.add(pane)
 
-view = Gtk::SourceView.new
+view = Gtk::TextView.new
 frame1.add(view)
 
 field = Gtk::Entry.new

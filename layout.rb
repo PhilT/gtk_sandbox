@@ -1,7 +1,6 @@
 #TODO: Change all files to set title in new method
 
 require 'gtk2'
-require 'gtksourceview2'
 require 'yaml'
 
 def widget_named path

@@ -1,5 +1,4 @@
 require 'gtk2'
-require 'gtksourceview2'
 
 window = Gtk::Window.new "Keyboard"
 window.signal_connect("destroy") do |w|

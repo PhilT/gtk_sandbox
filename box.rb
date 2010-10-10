@@ -1,5 +1,4 @@
 require 'gtk2'
-require 'gtksourceview2'
 
 window = Gtk::Window.new "Box"
 window.set_default_size(300, 200)

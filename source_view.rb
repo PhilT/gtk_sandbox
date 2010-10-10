@@ -2,7 +2,6 @@ require 'gtk2'
 require 'gtksourceview2'
 
 window = Gtk::Window.new 'Source View'
-window.add(scrollbars)
 
 window.signal_connect("destroy") do |w|
   Gtk.main_quit
@@ -27,7 +26,7 @@ view.buffer.style_scheme = scheme
 scrollbars = Gtk::ScrolledWindow.new
 scrollbars.set_policy(Gtk::POLICY_AUTOMATIC, Gtk::POLICY_AUTOMATIC)
 scrollbars.add(view)
-
+window.add(scrollbars)
 window.show_all
 
 Gtk.main

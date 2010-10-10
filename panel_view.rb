@@ -1,5 +1,6 @@
+# Press CTRL+F to display a text box at the bottom of the window. Press ESC to hide it again
+
 require 'gtk2'
-require 'gtksourceview2'
 
 window = Gtk::Window.new 'Panel View'
 window.signal_connect("destroy") do |w|
@@ -17,7 +18,7 @@ box.pack_start(frame1, true, true)
 box.pack_end(frame2, false, false)
 window.add(box)
 
-view = Gtk::SourceView.new
+view = Gtk::TextView.new
 frame1.add(view)
 
 field = Gtk::Entry.new

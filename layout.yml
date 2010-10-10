@@ -29,7 +29,7 @@ window:
       policy: Gtk::POLICY_AUTOMATIC, Gtk::POLICY_AUTOMATIC
       pack: both
       code:
-        type: SourceView
+        type: TextView
 
     file:
       type: VBox

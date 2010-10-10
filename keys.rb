@@ -6,11 +6,6 @@ window.signal_connect("destroy") do |w|
   Gtk.main_quit
 end
 
-window.signal_connect('event') do |w, e|
-  puts e
-  false # tells GTK to continue processing handlers for this event
-end
-
 window.signal_connect("key_press_event") do |w, e|
   keys = []
   keys << "CTRL" if e.state.control_mask?
