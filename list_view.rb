@@ -1,3 +1,5 @@
+# Uses Gtk::TreeView to present a listbox style flat list
+
 require 'gtk2'
 
 window = Gtk::Window.new 'ListView with a TreeView'
