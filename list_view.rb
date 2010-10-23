@@ -1,4 +1,4 @@
-# Uses Gtk::TreeView to present a listbox style flat list
+# Uses Gtk::TreeView to present a listbox style flat list and selects the third item
 
 require 'gtk2'
 
@@ -23,6 +23,14 @@ scrollbars = Gtk::ScrolledWindow.new
 scrollbars.set_policy(Gtk::POLICY_AUTOMATIC, Gtk::POLICY_AUTOMATIC)
 scrollbars.add(view)
 window.add(scrollbars)
+
+selection = view.selection
+iter = view.model.iter_first
+iter.next!
+iter.next!
+selection.select_iter(iter)
+iter = selection.selected
+puts iter ? "row #{iter[0]} selected" : 'nothing selected'
 
 window.show_all
 Gtk.main

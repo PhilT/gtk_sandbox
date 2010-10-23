@@ -7,13 +7,18 @@ window.signal_connect("destroy") do |w|
 end
 
 window.signal_connect("key_press_event") do |w, e|
-  keys = []
-  keys << "CTRL" if e.state.control_mask?
-  keys << "ALT" if e.state.mod1_mask?
-  keys << "SHIFT" if e.state.shift_mask?
   unmodified_keyval = Gdk::Keymap.default.lookup_key(e.hardware_keycode, 0, 0)
-  keys << Gdk::Keyval.to_name(unmodified_keyval)
-  shortcut = keys.join('+')
+  shortcut = Gdk::Keyval.to_name(unmodified_keyval)
+  shortcut.gsub!(/(_L|_R)$/, '')
+
+  if !%w(CTRL ALT SHIFT).include? shortcut
+    keys = []
+    keys << "CTRL" if e.state.control_mask?
+    keys << "ALT" if e.state.mod1_mask?
+    keys << "SHIFT" if e.state.shift_mask?
+    keys << shortcut
+    shortcut = keys.join('+')
+  end
   puts shortcut
   false
 end
