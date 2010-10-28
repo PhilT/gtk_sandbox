@@ -12,7 +12,7 @@ end
 view = Gtk::TreeView.new
 view.headers_visible = false
 view.append_column(Gtk::TreeViewColumn.new('Name', Gtk::CellRendererText.new, "text" => 0))
-list = %w(magic makes the world go round)
+list = %w(item1 item2 item3 item4)
 store = Gtk::ListStore.new(String)
 list.each do |item|
   iter = store.append
@@ -31,6 +31,8 @@ iter.next!
 selection.select_iter(iter)
 iter = selection.selected
 puts iter ? "row #{iter[0]} selected" : 'nothing selected'
+puts 'pushing item3 to the top of the list'
+store.move_before iter, view.model.iter_first
 
 window.show_all
 Gtk.main

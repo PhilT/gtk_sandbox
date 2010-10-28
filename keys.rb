@@ -7,6 +7,16 @@ window.signal_connect("destroy") do |w|
 end
 
 window.signal_connect("key_press_event") do |w, e|
+  puts 'pressing ' + handle_key_event(e)
+  false
+end
+
+window.signal_connect('key_release_event') do |w, e|
+  puts 'releasing ' + handle_key_event(e)
+  false
+end
+
+def handle_key_event e
   unmodified_keyval = Gdk::Keymap.default.lookup_key(e.hardware_keycode, 0, 0)
   shortcut = Gdk::Keyval.to_name(unmodified_keyval)
   shortcut.gsub!(/(_L|_R)$/, '')
@@ -19,8 +29,7 @@ window.signal_connect("key_press_event") do |w, e|
     keys << shortcut
     shortcut = keys.join('+')
   end
-  puts shortcut
-  false
+  shortcut
 end
 
 def press key, window
