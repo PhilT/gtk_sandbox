@@ -1,9 +1,13 @@
 Ruby Gnome2 Examples
 --------------------
 
+Now it's pretty easy to install Ruby Gnome2:
+
+    sudo apt-get -y install libgtk2.0-dev
+    gem install gtk2
+
 This is a suite of single file apps that exercise the various aspects of the ruby-gnome2 library.
 
-* **install**         - Script to install required libraries and download and install ruby-gnome2 and gtksourceview2
 * **box**             - Using the Gtk::VBox widget to pack frames vertically
 * **button**          - Displays a button. Handler for clicking
 * **checkbox**        - Displays a Gtk::CheckButton (checkbox in web terms). Handles checking/unchecking
