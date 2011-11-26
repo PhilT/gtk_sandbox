@@ -3,7 +3,8 @@
 #
 
 require 'gtk2'
-require 'rspec'
+require 'minitest/spec'
+require 'minitest/autorun'
 
 # Build the GUI
 window = Gtk::Window.new 'Specing'
@@ -93,12 +94,12 @@ end
 describe 'Open Panel' do
   it 'opens a file' do
     press 'CTRL+O'
-    panel.should be_visible
+    panel.visible?.must_equal true
     field = widget_named 'open.search'
     fill_in field, :with => 'filename'
-    field.text.should == 'filename'
+    field.text.must_equal 'filename'
     press 'Return', :in => field
-    field.text.should == ''
+    field.text.must_equal ''
   end
 end
 
