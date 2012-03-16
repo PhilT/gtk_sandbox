@@ -1,4 +1,5 @@
-# Press CTRL+F to display a text box at the bottom of the window. Press ESC to hide it again
+# Press CTRL+F to display a text box at the bottom of the window.
+# Press ESC to hide it again
 
 require 'gtk2'
 
