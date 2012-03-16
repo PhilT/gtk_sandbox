@@ -3,7 +3,6 @@
 #
 
 require 'gtk2'
-require 'minitest/spec'
 require 'minitest/autorun'
 
 # Build the GUI

@@ -1,4 +1,4 @@
-Ruby Gnome2 Examples
+GTK Sandbox
 --------------------
 
 Now it's pretty easy to install Ruby Gnome2:
@@ -6,25 +6,27 @@ Now it's pretty easy to install Ruby Gnome2:
     sudo apt-get -y install libgtk2.0-dev
     gem install gtk2
 
-This is a suite of single file apps that exercise the various aspects of the ruby-gnome2 library.
+A suite of single file apps that exercise the various aspects of GTK.
 
-* **box**             - Using the Gtk::VBox widget to pack frames vertically
-* **button**          - Displays a button. Handler for clicking
-* **checkbox**        - Displays a Gtk::CheckButton (checkbox in web terms). Handles checking/unchecking
-* **filter_list**     - A Gtk::TreeView displaying filenames that can be filtered based on text entered into a Gtk::Entry
-* **forward_events**  - Forwards key events to another widget
-* **hello**           - Simple Hello World
-* **info**            - Displays version GTK and Ruby bindings
-* **keyboard**        - Demonstrates VBox and HBox with buttons to display a keyboard layout
-* **keys**            - Handling keyboard shortcuts
-* **label**           - Display a simple label
-* **layout**          - Loads a GUI layout from a YAML and renders it. Example interaction: CTRL+F hides the bottom panel
-* **list_view**       - A Gtk::TreeView used as a list box
-* **pane**            - A Gtk::VPaned is similar to a Gtk::VBox with the addition of a dragable divider
-* **panel_view**      - Demonstrates showing and hiding a Gtk::Frame with keyboard shortcuts
-* **progress**        - Shows a Gtk::ProgressBar progress to 100% then switch to a indeterminate one
-* **source_view**     - Configures a Gtk::SourceView with syntax highlighting and theme support plus other source code editing features
-* **specing**         - Shows how GUI elements can be tested with RSpec
-* **text_tags**       - Show how Gtk::TextTag can be used to provide snippet support
-* **toggle_button**   - Displays a Gtk::ToggleButton. Looks like a normal button but behaves like a checkbox
+* **box**            - Virtically packed frames with Gtk::VBox
+* **button**         - Displays a button. Handler for clicking
+* **checkbox**       - Checkbox handling
+* **filter_list**    - Use a textbox to filter a list
+* **forward_events** - Forwards key events to another widget
+* **fullscreen**	 - Creates a fullscreen window (any key quits)
+* **hello**          - Simple Hello World
+* **keyboard**       - Uses layout and buttons to display a keyboard
+* **key_constants**  - Logs the Gdk::Keyval when pressing keys
+* **keys**           - Keyboard shortcut handling
+* **label**          - Displays a simple label
+* **layout**         - GTK widgets loaded from YAML. (CTRL+F hides)
+* **list_view**      - A Gtk::TreeView used as a list box
+* **pane**           - A Gtk::VPaned with the dragable divider
+* **panel_view**     - Show/hide a Gtk::Frame with keyboard shortcuts
+* **progress**       - Progresses to 100% then indeterminate one
+* **source_view**    - With highlighting and theme support
+* **specing**        - Shows how GTK can be tested with MiniTest
+* **text_tags**      - Snippets with Gtk::TextTag
+* **toggle_button**  - Looks like a button but behaves like a checkbox
+* **version**        - Displays GTK and Ruby binding version
 
