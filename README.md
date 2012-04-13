@@ -3,10 +3,18 @@ GTK Sandbox
 
 Now it's pretty easy to install Ruby Gnome2:
 
-    sudo apt-get -y install libgtk2.0-dev
-    gem install gtk2
+    sudo apt-get -y install ruby1.9.3       # Install Ruby if not already installed
+    sudo apt-get -y install libgtk2.0-dev   # Install GTK development package
+    sudo gem install gtk2                   # Install gtk
+
+For source_view example additional packages:
+
+    sudo apt-get -y install libgtksourceview2.0-dev
+    sudo gem install gtksourceview2
+
 
 A suite of single file apps that exercise the various aspects of GTK.
+Some of the apps do not have a visible close button. Pressing CTRL+Q should exit the app.
 
 * **box**            - Virtically packed frames with Gtk::VBox
 * **button**         - Displays a button. Handler for clicking

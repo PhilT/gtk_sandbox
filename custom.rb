@@ -7,6 +7,7 @@ window.set_default_size(400, 250)
 window.signal_connect("destroy") { |w| Gtk.main_quit }
 
 view = Gtk::TextView.new
+
 scroller = Gtk::ScrolledWindow.new
 scroller.set_policy(Gtk::POLICY_AUTOMATIC, Gtk::POLICY_AUTOMATIC)
 vscroller = scroller.vscrollbar

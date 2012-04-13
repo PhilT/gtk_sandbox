@@ -1,14 +1,12 @@
 require 'gtk2'
 require 'gtksourceview2'
 
-window = Gtk::Window.new 'Source View'
+window = Gtk::Window.new 'Source View with Markdown highlighting'
 
-window.signal_connect("destroy") do |w|
-  Gtk.main_quit
-end
+window.signal_connect("destroy") { |w| Gtk.main_quit }
 
 view = Gtk::SourceView.new
-view.set_size_request 300, 100
+view.set_size_request 600, 400
 
 view.auto_indent = true
 view.highlight_current_line = true
@@ -18,9 +16,9 @@ view.show_line_numbers = true
 SMART_HOME_END = {:before => 1, :after => 2, :both => 3}
 view.smart_home_end = SMART_HOME_END[:before]
 view.tab_width = 2
-view.buffer.language = Gtk::SourceLanguageManager.new.get_language 'rubyonrails'
-view.modify_font(Pango::FontDescription.new("monospace 9"))
-scheme = Gtk::SourceStyleSchemeManager.new.prepend_search_path('/home/phil/.gnome2/gedit/styles').get_scheme('railscasts')
+view.buffer.language = Gtk::SourceLanguageManager.new.get_language 'markdown'
+view.modify_font(Pango::FontDescription.new("monospace 10"))
+scheme = Gtk::SourceStyleSchemeManager.new.get_scheme('twilight')
 view.buffer.style_scheme = scheme
 
 scrollbars = Gtk::ScrolledWindow.new
